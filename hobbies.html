@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies — Abdul Ahad</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-brand">
+                <h1><b><i>Abdul Ahad</i></b></h1>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Light</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+        <section class="about-me">
+            <h2>Hobbies</h2>
+            <div class="table-wrap">
+                <table class="info-table">
+                    <caption>A list of my hobbies with categories and brief notes.</caption>
+                    <thead>
+                        <tr>
+                            <th colspan="3">IT-related Hobbies</th>
+                        </tr>
+                        <tr>
+                            <th>Hobby</th>
+                            <th>Category</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Hobby">Reading technical books</td>
+                            <td data-label="Category" rowspan="2" class="info-table-color">Learning</td>
+                            <td data-label="Notes">Algorithms, system design, and best practices<br>Keeps knowledge current and supports problem solving.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Watching tech talks & tutorials</td>
+                            <td data-label="Notes">Conference recordings, deep-dives, and hands-on walkthroughs.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Exploring new frameworks</td>
+                            <td data-label="Category" class="info-table-color">Web development</td>
+                            <td data-label="Notes">Trying React, Vue, Svelte and comparing patterns and ergonomics.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Open-source contributions</td>
+                            <td data-label="Category" rowspan="2" class="info-table-color">Collaboration</td>
+                            <td data-label="Notes">Submitting PRs, fixing bugs, improving documentation, mentoring through issues.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Participating in coding challenges</td>
+                            <td data-label="Notes">Algorithmic puzzles and timed contests (practice & skill sharpening).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Building side projects</td>
+                            <td data-label="Category" class="info-table-color">Development</td>
+                            <td data-label="Notes">Full-stack apps, REST APIs, deploying small demos to a cloud provider.<br>Focus on learning end-to-end workflows.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">DevOps experimentation</td>
+                            <td data-label="Category" rowspan="2" class="info-table-color">Infrastructure</td>
+                            <td data-label="Notes">Containers, CI/CD pipelines, and basic cloud automation (IaC experiments).</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">System administration</td>
+                            <td data-label="Notes">Linux, shell scripting, monitoring and small server maintenance tasks.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Machine learning experiments</td>
+                            <td data-label="Category" class="info-table-color">AI/ML</td>
+                            <td data-label="Notes">Data exploration, simple models, and trying libraries like scikit-learn or TensorFlow.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Hobby">Game development prototypes</td>
+                            <td data-label="Category" class="info-table-color">Interactive</td>
+                            <td data-label="Notes">2D prototypes and mechanics testing using lightweight engines (learning graphics/programming concepts).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="index.html">← Back to Home</a></p>
+    </section>
+    </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <h3>Abdul Ahad</h3>
+                <p class="muted">Software Developer • BRAC University</p>
+            </div>
+            <div class="footer-col footer-links">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#showcase">Highlights</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><a href="mailto:abdul.ahad1@g.bracu.ac.bd">abdul.ahad1@g.bracu.ac.bd</a></p>
+                <p class="muted">&copy; 2025 Abdul Ahad</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function(){
+            var root = document.documentElement;
+            var stored = localStorage.getItem('theme');
+            function setTheme(t){
+                root.setAttribute('data-theme', t);
+                var btn = document.getElementById('theme-toggle');
+                if(btn) btn.textContent = (t === 'light') ? 'Dark' : 'Light';
+            }
+            var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            setTheme(initial);
+            var toggle = document.getElementById('theme-toggle');
+            if(toggle){
+                toggle.addEventListener('click', function(){
+                    var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    var next = current === 'light' ? 'dark' : 'light';
+                    setTheme(next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+        })();
+    </script>
+    <script>
+        // Toggle fixed nav state after scrolling past initial nav position
+        (function(){
+            var nav = document.querySelector('nav');
+            if(!nav) return;
+            var navOffset = nav.getBoundingClientRect().top + window.pageYOffset;
+            function onScroll(){
+                if(window.pageYOffset > navOffset){
+                    if(!nav.classList.contains('nav--fixed')){
+                        nav.classList.add('nav--fixed');
+                        document.body.classList.add('nav-fixed');
+                        var h = nav.getBoundingClientRect().height;
+                        document.documentElement.style.setProperty('--nav-height', h + 'px');
+                    }
+                } else {
+                    if(nav.classList.contains('nav--fixed')){
+                        nav.classList.remove('nav--fixed');
+                        document.body.classList.remove('nav-fixed');
+                        document.documentElement.style.setProperty('--nav-height', '64px');
+                    }
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+            window.addEventListener('resize', function(){ navOffset = nav.getBoundingClientRect().top + window.pageYOffset; });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Abdul Ahad</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="nav-brand">
+                <h1><b><i>Abdul Ahad</i></b></h1>
+            </div>
+            <div class="nav-links">
+               <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Light</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+        <section class="about-me">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>Personal portfolio showcasing projects, resume and contact information.</p>
+                    <p class="tags">HTML • CSS • JavaScript</p>
+                </article>
+                <article class="project-card">
+                    <h3>Simple REST API</h3>
+                    <p>Backend API built with Node.js and Express for basic CRUD operations.</p>
+                    <p class="tags">Node.js • Express • JSON</p>
+                </article>
+                <article class="project-card">
+                    <h3>To‑Do App</h3>
+                    <p>A responsive front-end To‑Do application with local storage and filters.</p>
+                    <p class="tags">JavaScript • LocalStorage • UI</p>
+                </article>
+                <article class="project-card">
+                    <h3>Chat Demo</h3>
+                    <p>Real-time chat demo using WebSockets for live messaging between clients.</p>
+                    <p class="tags">Socket.io • Node.js</p>
+                </article>
+                <article class="project-card">
+                    <h3>Task Manager API</h3>
+                    <p>Small RESTful API that manages tasks with authentication and validation.</p>
+                    <p class="tags">Express • JWT • MongoDB</p>
+                </article>
+                <article class="project-card">
+                    <h3>Weather Dashboard</h3>
+                    <p>Front-end dashboard that consumes a public weather API and displays forecasts.</p>
+                    <p class="tags">HTML • Fetch API • UI</p>
+                </article>
+                <article class="project-card">
+                    <h3>Notes App</h3>
+                    <p>Notes application with tag filtering and a lightweight persistence layer.</p>
+                    <p class="tags">React • LocalStorage</p>
+                </article>
+                <article class="project-card">
+                    <h3>Chatbot Prototype</h3>
+                    <p>Prototype of a chatbot that answers simple prompts using rule-based logic.</p>
+                    <p class="tags">Python • NLP</p>
+                </article>
+                <article class="project-card">
+                    <h3>Image Gallery</h3>
+                    <p>Responsive gallery with lazy-loading and lightbox-style preview.</p>
+                    <p class="tags">JavaScript • CSS • Accessibility</p>
+                </article>
+            </div>
+            <p><a href="index.html">← Back to Home</a></p>
+    </section>
+    </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <h3>Abdul Ahad</h3>
+                <p class="muted">Software Developer • BRAC University</p>
+            </div>
+            <div class="footer-col footer-links">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#showcase">Highlights</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><a href="mailto:abdul.ahad1@g.bracu.ac.bd">abdul.ahad1@g.bracu.ac.bd</a></p>
+                <p class="muted">&copy; 2025 Abdul Ahad</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            var root = document.documentElement;
+            var stored = localStorage.getItem('theme');
+            function setTheme(t){
+                root.setAttribute('data-theme', t);
+                var btn = document.getElementById('theme-toggle');
+                if(btn) btn.textContent = (t === 'light') ? 'Dark' : 'Light';
+            }
+            var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            setTheme(initial);
+            var toggle = document.getElementById('theme-toggle');
+            if(toggle){
+                toggle.addEventListener('click', function(){
+                    var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    var next = current === 'light' ? 'dark' : 'light';
+                    setTheme(next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+        })();
+    </script>
+    <script>
+        // Toggle fixed nav state after scrolling past initial nav position
+        (function(){
+            var nav = document.querySelector('nav');
+            if(!nav) return;
+            var navOffset = nav.getBoundingClientRect().top + window.pageYOffset;
+            function onScroll(){
+                if(window.pageYOffset > navOffset){
+                    if(!nav.classList.contains('nav--fixed')){
+                        nav.classList.add('nav--fixed');
+                        document.body.classList.add('nav-fixed');
+                        var h = nav.getBoundingClientRect().height;
+                        document.documentElement.style.setProperty('--nav-height', h + 'px');
+                    }
+                } else {
+                    if(nav.classList.contains('nav--fixed')){
+                        nav.classList.remove('nav--fixed');
+                        document.body.classList.remove('nav-fixed');
+                        document.documentElement.style.setProperty('--nav-height', '64px');
+                    }
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+            window.addEventListener('resize', function(){ navOffset = nav.getBoundingClientRect().top + window.pageYOffset; });
+        })();
+    </script>
+</body>
+</html>

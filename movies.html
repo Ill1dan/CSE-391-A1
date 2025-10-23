@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies — Abdul Ahad</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-brand"><h1><b><i>Abdul Ahad</i></b></h1></div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="movies.html">Movies</a></li>
+            </ul>
+        </div>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Light</button>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+        <section class="about-me">
+            <h2>My Top 10 Movies</h2>
+            <ol class="movie-list">
+                <li class="movie-item">
+                    <img src="images/inception.jpg" alt="Inception poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Inception (2010)</strong>
+                        <div class="movie-credit">Christopher Nolan</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/matrix.png" alt="The Matrix poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>The Matrix (1999)</strong>
+                        <div class="movie-credit">The Wachowskis</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Interstellar.jpg" alt="Interstellar poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Interstellar (2014)</strong>
+                        <div class="movie-credit">Christopher Nolan</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Blade%20Runner%202049.jpg" alt="Blade Runner 2049 poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Blade Runner 2049 (2017)</strong>
+                        <div class="movie-credit">Denis Villeneuve</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Parasite.jpg" alt="Parasite poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Parasite (2019)</strong>
+                        <div class="movie-credit">Bong Joon-ho</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/The%20Shawshank%20Redemption.jpg" alt="The Shawshank Redemption poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>The Shawshank Redemption (1994)</strong>
+                        <div class="movie-credit">Frank Darabont</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Fight%20Club.jpg" alt="Fight Club poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Fight Club (1999)</strong>
+                        <div class="movie-credit">David Fincher</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Her.jpg" alt="Her poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Her (2013)</strong>
+                        <div class="movie-credit">Spike Jonze</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/The%20Prestige.jpg" alt="The Prestige poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>The Prestige (2006)</strong>
+                        <div class="movie-credit">Christopher Nolan</div>
+                    </div>
+                </li>
+                <li class="movie-item">
+                    <img src="images/Arrival.jpg" alt="Arrival poster" class="movie-thumb">
+                    <div class="movie-meta">
+                        <strong>Arrival (2016)</strong>
+                        <div class="movie-credit">Denis Villeneuve</div>
+                    </div>
+                </li>
+            </ol>
+            <p><a href="index.html">← Back to Home</a></p>
+    </section>
+    </div>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-brand">
+                <h3>Abdul Ahad</h3>
+                <p class="muted">Software Developer • BRAC University</p>
+            </div>
+            <div class="footer-col footer-links">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#showcase">Highlights</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><a href="mailto:abdul.ahad1@g.bracu.ac.bd">abdul.ahad1@g.bracu.ac.bd</a></p>
+                <p class="muted">&copy; 2025 Abdul Ahad</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            var root = document.documentElement;
+            var stored = localStorage.getItem('theme');
+            function setTheme(t){
+                root.setAttribute('data-theme', t);
+                var btn = document.getElementById('theme-toggle');
+                if(btn) btn.textContent = (t === 'light') ? 'Dark' : 'Light';
+            }
+            var initial = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            setTheme(initial);
+            var toggle = document.getElementById('theme-toggle');
+            if(toggle){
+                toggle.addEventListener('click', function(){
+                    var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    var next = current === 'light' ? 'dark' : 'light';
+                    setTheme(next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+        })();
+    </script>
+    <script>
+        // Toggle fixed nav state after scrolling past initial nav position
+        (function(){
+            var nav = document.querySelector('nav');
+            if(!nav) return;
+            var navOffset = nav.getBoundingClientRect().top + window.pageYOffset;
+            function onScroll(){
+                if(window.pageYOffset > navOffset){
+                    if(!nav.classList.contains('nav--fixed')){
+                        nav.classList.add('nav--fixed');
+                        document.body.classList.add('nav-fixed');
+                        var h = nav.getBoundingClientRect().height;
+                        document.documentElement.style.setProperty('--nav-height', h + 'px');
+                    }
+                } else {
+                    if(nav.classList.contains('nav--fixed')){
+                        nav.classList.remove('nav--fixed');
+                        document.body.classList.remove('nav-fixed');
+                        document.documentElement.style.setProperty('--nav-height', '64px');
+                    }
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+            window.addEventListener('resize', function(){ navOffset = nav.getBoundingClientRect().top + window.pageYOffset; });
+        })();
+    </script>
+</body>
+</html>
